@@ -7,3 +7,7 @@ def normalize(name):
 
 def label(name):
     return f"Hello, {normalize(name)}!"
+
+
+def labels(names):
+    return [label(name) for name in names]
