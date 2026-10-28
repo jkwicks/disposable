@@ -1,6 +1,6 @@
 import unittest
 
-from demo import label, normalize
+from demo import label, labels, normalize
 
 
 class TestBaseline(unittest.TestCase):
@@ -28,3 +28,14 @@ class TestNormalize(unittest.TestCase):
 
     def test_keeps_empty_name(self):
         self.assertEqual(normalize(""), "")
+
+
+class TestLabels(unittest.TestCase):
+    def test_labels_padded_names(self):
+        self.assertEqual(labels([" Ada ", "Grace"]), ["Hello, Ada!", "Hello, Grace!"])
+
+    def test_labels_two_names_in_input_order(self):
+        self.assertEqual(labels(["Grace", "Ada"]), ["Hello, Grace!", "Hello, Ada!"])
+
+    def test_labels_empty_list(self):
+        self.assertEqual(labels([]), [])
